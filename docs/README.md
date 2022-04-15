@@ -5,7 +5,7 @@
      - 공 입출력 및 종료 시 재시작/종료 등 Flow 담당
    • 입력 기능(BBInputController.java)
      - 번호입력
-   • 출력 기능(BBOutputController.java)
+   • 출력 기능(BBInputController.java)
      - 힌트(볼/스트라이크/낫싱) 출력
      - 재시작/종료 문구 출력
      - 기타 문구 출력
