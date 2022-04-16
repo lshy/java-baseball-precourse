@@ -1,5 +1,7 @@
 package baseball;
 
+import java.util.List;
+
 public class BBFlowController {
 
     BBInputController bbInputController;
@@ -53,9 +55,13 @@ public class BBFlowController {
 
     private void playGame(){
 
+        computer.setbBalls(bBallGenerator.generateRandomBall());
+
         do{
 
-        bbInputController.inputNumber();
+        String userInput = bbInputController.inputNumber();
+        List<BBall> bBallList = bBallGenerator.generateInputBall(userInput);
+        user.setbBalls(bBallList);
         checkUserStatus();
 
         }while(bbReferee.isEndGame(user));
