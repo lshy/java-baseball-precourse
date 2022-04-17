@@ -2,8 +2,7 @@ package baseball;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class BBallGenerator {
 
@@ -11,7 +10,13 @@ public class BBallGenerator {
 
     public List<BBall> generateRandomBall() {
 
-        List<Integer> intList = Randoms.pickUniqueNumbersInRange(BBall.MIN_BALL_NUMBER,BBall.MAX_BALL_NUMBER,MAX_BALL_COUNT);
+        Set<Integer> randomIntSet = makeRandomIntSet();
+        List<Integer> intList = new ArrayList<>();
+
+        Iterator<Integer> it = randomIntSet.iterator();
+        while(it.hasNext()){
+            intList.add(it.next());
+        }
 
         return convertInt2BBall(intList);
     }
@@ -38,5 +43,17 @@ public class BBallGenerator {
         }
 
         return bBallList;
+    }
+
+    public Set<Integer> makeRandomIntSet(){
+
+        Set<Integer> randomIntSet = new HashSet<>();
+
+        while(randomIntSet.size() != BBallGenerator.MAX_BALL_COUNT){
+            randomIntSet.add(Randoms.pickNumberInRange(BBall.MIN_BALL_NUMBER, BBall.MAX_BALL_NUMBER));
+        }
+
+        return randomIntSet;
+
     }
 }

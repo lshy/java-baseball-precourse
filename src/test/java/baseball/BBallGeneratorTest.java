@@ -42,4 +42,13 @@ public class BBallGeneratorTest {
 
     }
 
+    @Test
+    @DisplayName("랜덤볼 생성 함수 테스트")
+    void BBallGeneratorRandomSetTest(){
+
+        Set<Integer> randomIntSet = bBallGenerator.makeRandomIntSet();
+        assertThat(randomIntSet.size()).isEqualTo(3);
+
+    }
+
 }
