@@ -27,12 +27,27 @@ public class BBallGenerator {
 
         List<Integer> intList = new ArrayList<>();
 
-        for(int i=0; i<MAX_BALL_COUNT; ++i){
-            int now = Character.getNumericValue(input.charAt(i));
-            intList.add(now);
+        for(int i=0; i<BBallGenerator.MAX_BALL_COUNT; ++i){
+            intList.add(Character.getNumericValue(input.charAt(i)));
         }
 
+        checkInputDuplicateValid(intList);
+
         return convertInt2BBall(intList);
+    }
+
+    private void checkInputDuplicateValid(List<Integer> intList) {
+
+        Set<Integer> inputIntSet = new HashSet<>();
+
+        for(int i=0; i<MAX_BALL_COUNT; ++i){
+            inputIntSet.add(intList.get(i));
+        }
+
+        if(inputIntSet.size() != BBallGenerator.MAX_BALL_COUNT){
+            throw new IllegalArgumentException("서로 다른 수로 이루어져야 합니다.");
+        }
+
     }
 
     private void checkInputLengthValid(String input) {

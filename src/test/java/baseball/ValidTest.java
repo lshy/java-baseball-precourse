@@ -38,4 +38,20 @@ public class ValidTest {
                 .hasMessageContaining("3자리");
 
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"111", "112", "123"})
+    @DisplayName("1~9 아닌 숫자 테스트")
+    void bBallDuplicateTest(String input){
+
+        assertThatThrownBy(() -> {
+
+            BBallGenerator bBallGenerator = new BBallGenerator();
+            bBallGenerator.generateInputBall(input);
+
+        }).isInstanceOf(IllegalArgumentException.class)
+                .hasMessageContaining("서로 다른");
+
+    }
+
 }
