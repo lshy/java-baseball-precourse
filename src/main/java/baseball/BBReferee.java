@@ -32,7 +32,7 @@ public class BBReferee {
 
     }
 
-    private int doStrike(BBall defense, BBall attake){
+    public int doStrike(BBall defense, BBall attake){
 
         if(defense.equals(attake)){
             return 1;
@@ -41,7 +41,7 @@ public class BBReferee {
         return 0;
     }
 
-    private int doBall(List<BBall> defense, BBall attake, int index){
+    public int doBall(List<BBall> defense, BBall attake, int index){
 
         if(defense.contains(attake) && !defense.get(index).equals(attake)){
             return 1;
