@@ -58,11 +58,12 @@ public class BBFlowController {
         computer.setbBalls(bBallGenerator.generateRandomBall());
 
         do{
+            String userInput = bbInputController.inputNumber();
+            List<BBall> bBallList = bBallGenerator.generateInputBall(userInput);
+            user.setbBalls(bBallList);
 
-        String userInput = bbInputController.inputNumber();
-        List<BBall> bBallList = bBallGenerator.generateInputBall(userInput);
-        user.setbBalls(bBallList);
-        checkUserStatus();
+            bbReferee.doJudgment(computer, user);
+            checkUserStatus();
 
         }while(bbReferee.isEndGame(user));
 
