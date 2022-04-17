@@ -8,7 +8,7 @@ public class BBReferee {
 
     public boolean isEndGame(Player player) {
 
-        if(player.getStrike() == 3){
+        if(player.getStrike() == BBallGenerator.MAX_BALL_COUNT){
             return false;
         }
 

@@ -4,6 +4,9 @@ import java.util.List;
 
 public class BBFlowController {
 
+    public static final String REGAME_FLAG = "1";
+    public static final String ENDGAME_FLAG = "2";
+
     BBInputController bbInputController;
     BBOutputController bbOutputController;
     BBallGenerator bBallGenerator;
@@ -46,11 +49,20 @@ public class BBFlowController {
 
         String reGame = bbInputController.inputReGame();
 
-        if("1".equals(reGame)){
+        reGameFlagValid(reGame);
+
+        if(REGAME_FLAG.equals(reGame)){
             return true;
         }
 
         return false;
+    }
+
+    private void reGameFlagValid(String reGame) {
+
+        if(!REGAME_FLAG.equals(reGame) && !ENDGAME_FLAG.equals(reGame)){
+            throw new IllegalArgumentException("1 혹은 2를 입력해주세요.");
+        }
     }
 
     private void playGame(){

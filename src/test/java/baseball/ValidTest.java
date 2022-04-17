@@ -40,7 +40,7 @@ public class ValidTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {"111", "112", "123"})
+    @ValueSource(strings = {"111", "112", "122"})
     @DisplayName("1~9 아닌 숫자 테스트")
     void bBallDuplicateTest(String input){
 
