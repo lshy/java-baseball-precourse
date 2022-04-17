@@ -10,7 +10,15 @@ public class BBall {
     private int number;
 
     public BBall(int number){
+
+        checkNumberValid(number);
         this.number = number;
+    }
+
+    private void checkNumberValid(int number) {
+        if(number<MIN_BALL_NUMBER || number >MAX_BALL_NUMBER){
+            throw new IllegalArgumentException("1~9사이 숫자로 이루어져야 합니다.");
+        }
     }
 
     public int getNumber() {

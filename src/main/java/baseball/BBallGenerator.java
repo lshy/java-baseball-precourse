@@ -23,6 +23,8 @@ public class BBallGenerator {
 
     public List<BBall> generateInputBall(String input) {
 
+        checkInputLengthValid(input);
+
         List<Integer> intList = new ArrayList<>();
 
         for(int i=0; i<MAX_BALL_COUNT; ++i){
@@ -31,6 +33,14 @@ public class BBallGenerator {
         }
 
         return convertInt2BBall(intList);
+    }
+
+    private void checkInputLengthValid(String input) {
+
+        if(input.length() != BBallGenerator.MAX_BALL_COUNT){
+            throw new IllegalArgumentException("3자리 숫자를 입력해 주세요.");
+        }
+
     }
 
     private List<BBall> convertInt2BBall(List<Integer> intList){
