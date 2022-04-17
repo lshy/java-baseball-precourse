@@ -67,6 +67,8 @@ public class BBFlowController {
 
         }while(bbReferee.isEndGame(user));
 
+        bbOutputController.outputEndGame();
+
     }
 
 }
